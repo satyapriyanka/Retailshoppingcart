@@ -1,0 +1,62 @@
+<div class="row">
+  <h3>Shipping</h3>
+</div>
+
+<div class="row" *ngIf="shoppingCart && shoppingCart.cartItems">
+  <div class="col-md-6">
+    <form [formGroup]="checkoutForm" (ngSubmit)="onSubmit()">
+      <mat-form-field appearance="outline">
+        <mat-label>Name</mat-label>
+        <input matInput placeholder="Name" formControlName="name">
+      </mat-form-field>
+
+      <div formGroupName="address">
+        <mat-label>Address</mat-label>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Address Line1 </mat-label>
+          <input matInput placeholder="Address Line1" formControlName="line1">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Address Line2</mat-label>
+          <input matInput placeholder="Address Line2" formControlName="line2">
+        </mat-form-field>
+      </div>
+
+      <mat-form-field appearance="outline">
+        <mat-label>City</mat-label>
+        <input matInput placeholder="City" formControlName="city">
+      </mat-form-field>
+
+      <button mat-raised-button color="primary">Place Order</button>
+    </form>
+  </div>
+
+  <div class="col-md-6">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>Order Summary</mat-card-title>
+        <mat-card-subtitle>You have {{fetchCheckoutQuantity(shoppingCart)}} items in your shopping cart.
+        </mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <table class="table">
+          <tbody>
+            <tr *ngFor="let product of products ">
+              <td>{{getQuantity(product.id)}} x {{product.title}}</td>
+              <td>{{getQuantity(product.id) * product.price | currency:'USD':'symbol'}}</td>
+            </tr>
+
+            <tr>
+              <td></td>
+              <th>{{addTotalToProducts() | currency:'USD':'symbol'}}</th>
+            </tr>
+
+          </tbody>
+        </table>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+</div>

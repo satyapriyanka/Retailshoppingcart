@@ -1,0 +1,15 @@
+.categoryHeader .card-header, .categoryHeader li {
+    cursor: pointer;
+}
+
+.categoryHeader .card{
+   margin-top: 80px;
+   position: fixed;
+}
+
+
+.active{
+    color: #fff;
+    background-color: #007bff;
+    border-color: #007bff;
+}

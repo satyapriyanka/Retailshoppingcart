@@ -1,0 +1,11 @@
+
+mat-card{
+    margin-bottom: 3em;
+    border-bottom-left-radius:8px;
+    border-bottom-right-radius:8px;
+}
+
+mat-card-footer{
+    height: 2.7em;
+    text-align: center;
+}

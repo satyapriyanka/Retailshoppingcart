@@ -1,0 +1,15 @@
+<div class="row productsDisplay">
+  <div class="col-md-4 col-sm-6" *ngFor="let product of filteredProducts">
+    <mat-card>
+      <mat-card-content></mat-card-content>
+      <img mat-card-image src="{{product.imageURL}}" alt="{{product.title}}" style="height:175px">
+      <mat-card-header>
+        <mat-card-title>{{product.title}}</mat-card-title>
+        <mat-card-subtitle>{{product.price | currency: 'USD': 'symbol'}}</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-footer>
+       <app-add-products *ngIf="product" [product]="product" [deleteDeletedProduct]="true"></app-add-products>
+      </mat-card-footer>
+    </mat-card>
+  </div>
+</div>

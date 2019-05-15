@@ -1,0 +1,35 @@
+<nav class="navbar navbar-light bg-light fixed-top navbar-expand-lg">
+  <div class="container">
+    <a class="navbar-brand" routerLink="/"><i class="fa fa-leaf" aria-hidden="true"></i></a>
+
+
+    <ul class="nav navbar-nav mr-auto">
+      <li>
+        <a class="nav-link" routerLinkActive="active" routerLink="/shopping-cart">
+          <span [matBadge]="calculateShoppingItems(shoppingCart)" matBadgeOverlap="false" matBadgeColor="accent"
+            matBadgePosition="below after">
+            <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+          </span> </a>
+      </li>
+    </ul>
+
+    <ul class="nav navbar-nav">
+      <li class="nav-item dropdownMenu float-right" *ngIf="authService.IsLoggedIn">
+        <div ngbDropdown class="d-inline-block">
+          <a class="btn btn-outline-default nav-link" id="navbarDropdownMenuLink" ngbDropdownToggle>{{authService.user.fullName}}</a>
+          <div ngbDropdownMenu aria-labelledby="navbarDropdownMenuLink">
+            <button class="dropdown-item" routerLink="my/orders">My Orders</button>
+            <button class="dropdown-item" *ngIf="authService.IsAdmin" routerLink="admin/orders">Manage Orders</button>
+            <button class="dropdown-item" *ngIf="authService.IsAdmin" routerLink="admin/products">Manage Products</button>
+            <button class="dropdown-item" (click)="logOut()">Log Out</button>
+          </div>
+        </div>
+      </li>
+
+      <li class="nav-item loginButton float-right" *ngIf="!authService.IsLoggedIn && !authService.isWaitingForResponse">
+        <a class="nav-link" routerLinkActive="active" routerLink="/login">Login</a>
+      </li>
+    </ul>
+  </div>
+
+</nav>

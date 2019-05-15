@@ -1,0 +1,5 @@
+<div>
+  <button *ngIf="!authService.isWaitingForResponse" class="btn btn-primary" (click)="login()">Login with Google</button>
+</div>
+
+<mat-spinner *ngIf="authService.isWaitingForResponse"></mat-spinner>

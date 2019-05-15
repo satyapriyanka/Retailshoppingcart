@@ -1,0 +1,11 @@
+<div class="categoryHeader sticky-top">
+  <div class="card">
+    <div class="card-header" routerLink="/" [ngClass]="{'active': !category}">
+      All Categories
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item" *ngFor="let category of productCategoryKeys" routerLinkActive="active" routerLink="/"
+        [queryParams]='fetchQueryParams(category)'>{{category}}</li>
+    </ul>
+  </div>
+</div>

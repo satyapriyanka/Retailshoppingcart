@@ -1,0 +1,14 @@
+
+<div>
+  <div *ngIf="getProductQuantity() === 0; then addToCart; else showCart"></div>
+  <ng-template #addToCart>
+    <button class="btn btn-primary" (click)="addProductToCart(1)">Add to Cart</button>
+  </ng-template>
+  <ng-template #showCart>
+    <div>
+      <button type="button" [disabled]="isAddingProducts" class="btn btn-primary btn-sm removeBtn" (click)="addProductToCart((shoppingCartService.productsWithQuantity[product.id] - 1))">-</button>
+      <span>{{shoppingCartService.productsWithQuantity[product.id]}} in cart</span>
+      <button type="button" [disabled]="isAddingProducts" class="btn btn-primary btn-sm addBtn" (click)="addProductToCart((shoppingCartService.productsWithQuantity[product.id] + 1))">+</button>
+    </div>
+  </ng-template>
+</div>

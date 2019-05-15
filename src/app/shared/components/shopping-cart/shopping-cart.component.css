@@ -1,0 +1,39 @@
+table {
+    width:100%;
+}
+
+.shoppingCartTable {
+    max-height: 600px;
+    overflow-y: auto;
+}
+
+.mat-card-image{
+    border-radius: 50% !important;
+    width: 100px;
+    height: 100px;
+    padding: 10px;
+    border-top-left-radius: 50%;
+    border-top-right-radius: 50%;
+    margin-top:10px;
+}
+
+th, tbody tr td{
+    text-align: center !important;
+}
+
+.totalPrice{
+    font-weight:bold;
+}
+
+.deleteCart, .addCart {
+    margin-top: 2em;
+}
+
+td.mat-footer-cell {
+    text-align: center;
+    font-weight: bold;
+}
+
+.mat-card-image:first-child {
+    margin-top: 0px;
+}

@@ -1,0 +1,8 @@
+
+.nav.navbar-nav li a{
+    font-size: 18px
+}
+
+.dropdownMenu, .loginButton{
+    margin-left: 1em;
+}
